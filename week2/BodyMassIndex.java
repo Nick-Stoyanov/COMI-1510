@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * 
  * 
  * @author Nikolay Stoyanov
- *
+ *  date 10/02/2022
  */
 
 public class BodyMassIndex
@@ -34,17 +34,17 @@ public class BodyMassIndex
 	// Get input for weight and convert it to a double
 	String InputWeight = JOptionPane.showInputDialog("Enter weight in pounds: ");
 	double weight = Double.parseDouble(InputWeight);
-	
+
 	// Get input for height and convert it to a double
 	String InputHeight = JOptionPane.showInputDialog("Enter height in inches: ");
 	double height = Double.parseDouble(InputHeight);
-	
+
 	// Declare and calculate BMI
 	double BMI = weight * (703 / (height * height));
-	
+
 	// Declare new string to tell the user if they are over, under or optimal weight
 	StringBuilder BMIResult = new StringBuilder();
-	
+
 	// Start if statement to append result to BMIResult
 	if (BMI < 18.5)
 	{
@@ -57,8 +57,8 @@ public class BodyMassIndex
 	{
 	    BMIResult.append("have optimal BMI.");
 	}
-	
-	// Display formatted result 
+
+	// Display formatted result
 	JOptionPane.showMessageDialog(null, String.format("Your BMI is: %.1f", BMI) + '\n' + "You " + BMIResult);
 
     }// close main

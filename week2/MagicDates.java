@@ -15,14 +15,16 @@ import javax.swing.JOptionPane;
  * message saying the date is magic. Otherwise, it should display a message saying the date is not magic.
  * 
  * @author Nikolay Stoyanov
- *
+ * date 10/02/2022
  */
 
 public class MagicDates
 {
     /**
      * 
-     * main method prompts user for three inputs, validating each one is within range then displaying results.
+     * Main method prompts user for three inputs, validating each one is within range then displaying results.
+     * 
+     * @args ignored 
      */
 
     public static void main(String[] args)

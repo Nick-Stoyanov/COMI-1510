@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * 
  * 
  * @author Nikolay Stoyanov
- *
+ * date 10/02/2022
  */
 
 public class TestScoresAndGrade
@@ -25,6 +25,8 @@ public class TestScoresAndGrade
     /**
      * 
      * Main method prompts user for three inputs, calculates their average then displays average and grade assigned.
+     * 
+     * @args ignored
      */
 
     public static void main(String[] args)
