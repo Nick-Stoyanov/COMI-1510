@@ -13,36 +13,41 @@ public class AGameOf21Test
 
 	private static void playGame()
 	{
-		AGameOf21 game = new AGameOf21();
-
 		final int blackJack = 21;
-		Integer userPoints = 0;
-		Integer computerPoints = 0;
 
-		userPoints += game.getRollValue();
-		computerPoints += game.getRollValue();
+		AGameOf21Player player = new AGameOf21Player();
+		AGameOf21Player computer = new AGameOf21Player();
 
-		JOptionPane.showMessageDialog(null, "Your roll: " + userPoints);
+		// Integer userPoints = 0;
+		// Integer computerPoints = 0;
+
+		player.setPoints(player.getRollValue());
+		computer.setPoints(computer.getRollValue());
+
+		JOptionPane.showMessageDialog(null, "Your roll: " + player.getPoints());
 
 		Boolean rollAgain = true;
 
 		int n = JOptionPane.showConfirmDialog(null, "Do you want to roll again?", "Select and option.",
 				JOptionPane.YES_NO_OPTION);
-		while (rollAgain && userPoints <= blackJack)
+		while (rollAgain && player.getPoints() <= blackJack)
 		{
 
-			if (n == JOptionPane.NO_OPTION && userPoints <= blackJack)
+			if (n == JOptionPane.NO_OPTION && player.getPoints() <= blackJack)
 			{
-				rollAgain = false;;
+				rollAgain = false;
 			}
 
-			if (userPoints <= blackJack && rollAgain)
+			if (player.getPoints() <= blackJack && rollAgain)
 			{
-				computerPoints += game.getRollValue();
-				userPoints += game.getRollValue();
-				JOptionPane.showMessageDialog(null, "Your score: " + userPoints);;
 
-				if (userPoints <= blackJack)
+				computer.setPoints(computer.getPoints() + computer.getRollValue());
+				player.setPoints(player.getPoints() + player.getRollValue());
+
+				JOptionPane.showMessageDialog(null, "Your score: " + player.getPoints());
+				;
+
+				if (player.getPoints() <= blackJack)
 				{
 					n = JOptionPane.showConfirmDialog(null, "Do you want to roll again?", "Select and option.",
 							JOptionPane.YES_NO_OPTION);
@@ -53,15 +58,15 @@ public class AGameOf21Test
 			}
 		}
 
-		displayResults(userPoints, computerPoints);
+		displayResults(player.getPoints(), computer.getPoints());
 
-		if (userPoints <= blackJack && computerPoints <= blackJack)
+		if (player.getPoints() <= blackJack && computer.getPoints() <= blackJack)
 		{
 
-			if (userPoints > computerPoints)
+			if (player.getPoints() > computer.getPoints())
 			{
 				JOptionPane.showMessageDialog(null, "You win!\n");
-			} else if (userPoints < computerPoints)
+			} else if (player.getPoints() < computer.getPoints())
 			{
 				JOptionPane.showMessageDialog(null, "You lose!\n");
 
@@ -72,13 +77,13 @@ public class AGameOf21Test
 			}
 		}
 
-		else if (userPoints <= blackJack && computerPoints > blackJack)
+		else if (player.getPoints() <= blackJack && computer.getPoints() > blackJack)
 		{
 
 			JOptionPane.showMessageDialog(null, "You win!\n");
 		}
 
-		else if (userPoints > blackJack && computerPoints <= blackJack)
+		else if (player.getPoints() > blackJack && computer.getPoints() <= blackJack)
 		{
 			JOptionPane.showMessageDialog(null, "You lose!\n");
 		}
@@ -88,7 +93,6 @@ public class AGameOf21Test
 			JOptionPane.showMessageDialog(null, "No winners!\n");
 		}
 
-		
 	}
 
 	private static void displayResults(int userPoints, int computerPoints)
