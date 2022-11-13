@@ -24,30 +24,177 @@ package chapter6;
  */
 public class SavingsAccount
 {
+	/**
+	 * Initiate variable to hold starting balance
+	 */
+	private double startingBalance = 0;
 
-	private double balance = 0;
-	
-	private double interestRate = 0;
-	
-	
-	public SavingsAccount() {
+	/**
+	 * Initiate variable to hold current balance
+	 */
+	private double currentBalance = 0.0;
+
+	/**
+	 * Initiate variable to hold interest rate
+	 */
+	private double interestRate = 0.0;
+
+	/**
+	 * Initiate variable to hold total interest earned
+	 */
+	private double totalInterestEarned = 0.0;
+
+	/**
+	 * Initiate variable to hold total amount of deposits
+	 */
+	private double totalDeposit = 0.0;
+
+	/**
+	 * Initiate variable to hold total amount of withdraws
+	 */
+	private double totalWithdraw = 0.0;
+
+	/**
+	 * Default constructor
+	 */
+	public SavingsAccount()
+	{
 		this(0);
 	}
-	
-	public SavingsAccount(int startBalance) {
-		balance = startBalance;
+
+	/**
+	 * Constructor to set starting balance
+	 * 
+	 * @param sb startBalance
+	 */
+	public SavingsAccount(double sb)
+	{
+		startingBalance = sb;
 	}
-	
-	
-	public void  setInterestRate(double rate) {
-		interestRate = rate;
+
+	/**
+	 * Set starting balance
+	 * 
+	 * @param sb User input for tarting balance
+	 */
+	public void setStartingBalance(double sb)
+	{
+		startingBalance = sb;
 	}
-	
-	public void deposit(double amount) {
-		balance += amount;
+
+	/**
+	 * Get starting balance
+	 * 
+	 * @return Starting balance
+	 */
+	public double getStartingBalance()
+	{
+		return this.startingBalance;
 	}
-	
-	public void withdraw(double amount) {
-		balance -= amount;
+
+	/**
+	 * Set current balance
+	 * 
+	 * @param cb Current balance
+	 */
+	public void setCurrentBalance(double cb)
+	{
+		currentBalance = cb;
 	}
-}
+
+	/**
+	 * Get current balance
+	 * 
+	 * @return Current balance
+	 */
+	public double getCurrentBalance()
+	{
+		return this.currentBalance;
+	}
+
+	/**
+	 * Set interest rate
+	 * 
+	 * @param IntRate User input for interest rate
+	 */
+	public void setInterestRate(double IntRate)
+	{
+		interestRate = IntRate;
+	}
+
+	/**
+	 * Get interest Rate
+	 * 
+	 * @return Interest rate
+	 */
+	public double getInterestRate()
+	{
+		return this.interestRate;
+	}
+
+	/**
+	 * Get user input for deposit and add it to current balance and total deposit.
+	 * 
+	 * @param deposit User input for deposit amount
+	 */
+	public void deposit(double deposit)
+	{
+		currentBalance += deposit;
+		totalDeposit += deposit;
+	}
+
+	/**
+	 * Get total deposit amount.
+	 * 
+	 * @return Total deposit amount
+	 */
+	public double getTotalDeposit()
+	{
+		return this.totalDeposit;
+	}
+
+	/**
+	 * Get user input for withdraw subtract it from current balance and att to total withdraw.
+	 * 
+	 * @param withdraw withdraw amount
+	 */
+	public void withdraw(double withdraw)
+	{
+		currentBalance -= withdraw;
+		totalWithdraw += withdraw;
+	}
+
+	/**
+	 * Get total withdraw amount
+	 * 
+	 * @return Total withdraw amount
+	 */
+	public double getTotalWithdraw()
+	{
+		return this.totalWithdraw;
+	}
+
+	/**
+	 * Adds monthly interest too current balance and total interest earned
+	 */
+	public void addMonthlyInterest()
+	{
+		double monthlyInterest = 0;
+
+		// Calculate monthly interest
+		monthlyInterest = (interestRate / 100) * currentBalance;
+
+		currentBalance += monthlyInterest;
+		totalInterestEarned += monthlyInterest;
+	}
+
+	/**
+	 * Get toatl interest earned
+	 * 
+	 * @return total Interest earned
+	 */
+	public double getTotalInterestEarned()
+	{
+		return this.totalInterestEarned;
+	}
+}// close class

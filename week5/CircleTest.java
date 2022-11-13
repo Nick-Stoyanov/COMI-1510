@@ -14,6 +14,13 @@ import javax.swing.JOptionPane;
  */
 public class CircleTest
 {
+	/**
+	 * Default constructor
+	 */
+	public CircleTest()
+	{
+		super();
+	}
 
 	/**
 	 * Displays the output message to the user
@@ -29,20 +36,6 @@ public class CircleTest
 	/**
 	 * This method will prompt the user to enter the radius of a circle in order to calculate diameter, area and
 	 * circumference
-	 * 
-	 * <BR>
-	 * Prompt includes:
-	 * <UL>
-	 * radius
-	 * </UL>
-	 *
-	 * <BR>
-	 * Calculations Include:
-	 * <UL>
-	 * <LI>Circle Area
-	 * <LI>Circle Diameter
-	 * <LI>Circle Circumference
-	 * </UL>
 	 *
 	 * 
 	 * @return the result of the calculations

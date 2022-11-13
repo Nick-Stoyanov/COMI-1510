@@ -37,9 +37,7 @@ public class CoinTossSimulator
 	}
 
 	/**
-	 * Main method tosses the coin 20 times and keeps count of heads and tails
-	 * 
-	 * @param args ignored
+	 * Method plays game and display results
 	 */
 
 	private static void playGame()
@@ -80,7 +78,7 @@ public class CoinTossSimulator
 	/**
 	 * Main method calls the playGame method to start game
 	 * 
-	 * @param args
+	 * @param args ignored
 	 */
 
 	public static void main(String[] args)

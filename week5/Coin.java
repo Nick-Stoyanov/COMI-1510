@@ -17,13 +17,19 @@ import java.util.Random;
 public class Coin
 {
 
-	// Initiate variable to hold 1 or 0 as a value
+	/**
+	 *  Initiate variable to hold 1 or 0 as a value
+	 */
 	private int value;
 
-	// Hold heads or tails value for the coin
+	/**
+	 *  Hold heads or tails value for the coin
+	 */
 	private String sideUp;
 
-	// Create a new random object
+	/**
+	 *  Create a new random object
+	 */
 	Random rand = new Random();
 
 	/**
