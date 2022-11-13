@@ -1,5 +1,6 @@
 /**
- * This program uses the Die and AGameOf21 class to simulate a game between player and computer
+ * This program uses the Die and AGameOf21 class to simulate a game between
+ * player and computer
  */
 package chapter6;
 
@@ -26,7 +27,7 @@ public class AGameOf21Test
 	/**
 	 * Play a game of 21
 	 */
-	private static void playGame()
+	private static String playGame()
 	{
 		/**
 		 * Constant value of blackJack
@@ -123,6 +124,14 @@ public class AGameOf21Test
 			JOptionPane.showMessageDialog(null, "No winners!\n");
 		}
 
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(player.toString()).append("\n\n");
+		sb.append(computer.toString()).append("\n\n");
+		sb.append("Player points:").append(player.getPoints()).append("\n");
+		sb.append("Computer points:").append(computer.getPoints()).append("\n");
+
+		return sb.toString();
 	}
 
 	/**
@@ -138,7 +147,8 @@ public class AGameOf21Test
 	}
 
 	/**
-	 * Ask user if they would like to run the program again. If no then display HotDogFullyLoaded goodbye message.
+	 * Ask user if they would like to run the program again. If no then display
+	 * goodbye message.
 	 *
 	 * @return boolean to stop or continue the program
 	 */
@@ -155,6 +165,11 @@ public class AGameOf21Test
 		return run;
 	}
 
+	private static void displayOutput(String output)
+	{
+		System.out.println(output);
+	}// close displayOutput
+
 	/**
 	 * Main method plays game
 	 * 
@@ -165,7 +180,9 @@ public class AGameOf21Test
 		Boolean runAgain = true;
 		while (runAgain)
 		{
-			playGame();
+			String output = null;
+			output = playGame();
+			displayOutput(output);
 			runAgain = runAgain();
 		}
 	}

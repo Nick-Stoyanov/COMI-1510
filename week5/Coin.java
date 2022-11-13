@@ -73,5 +73,18 @@ public class Coin
 	{
 		return sideUp;
 	}
+	/**
+	 * Returns an unserialized representation of this object
+	 * 
+	 * @return The unserialized representatiuon of this object
+	 */
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(this.getClass());
+		sb.append(" this.getSideUp()= ").append(this.getSideUp());
+		return sb.toString();
+	}// close toString
 
 }

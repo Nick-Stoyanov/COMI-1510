@@ -86,5 +86,20 @@ public class AGameOf21Player
 	{
 		return this.points;
 	}
+	
+	/**
+	 * Returns an unserialized representation of this object
+	 * 
+	 * @return The unserialized representatiuon of this object
+	 */
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(this.getClass());
+		sb.append(" this.getRollValue()= ").append(this.getRollValue());
+		sb.append(" this.getPoints()= ").append(this.getPoints());
+		return sb.toString();
+	}// close toString
 
 }// close class

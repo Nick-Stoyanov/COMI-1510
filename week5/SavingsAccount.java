@@ -197,4 +197,24 @@ public class SavingsAccount
 	{
 		return this.totalInterestEarned;
 	}
+	
+	/**
+	 * Returns an unserialized representation of this object
+	 * 
+	 * @return The unserialized representatiuon of this object
+	 */
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(this.getClass());
+		sb.append(" this.getStartingBalance()= ").append(this.getStartingBalance());
+		sb.append(" this.getCurrentbalance()= ").append(this.getCurrentBalance());
+		sb.append(" this.getInterestRate()= ").append(this.getInterestRate());
+		sb.append(" this.getGetTotalDeposit()= ").append(this.getTotalDeposit());
+		sb.append(" this.getGetTotalWithdraw()= ").append(this.getTotalWithdraw());
+		sb.append(" this.getGetTotalInterestEarned()= ").append(this.getTotalInterestEarned());
+
+		return sb.toString();
+	}// close toString
 }// close class

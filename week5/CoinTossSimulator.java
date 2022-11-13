@@ -56,12 +56,12 @@ public class CoinTossSimulator
 		// Create new coin
 		Coin coin = new Coin();
 		System.out.println("Initial state: " + coin.getSideUp());
+		StringBuilder sb = new StringBuilder();
 
 		// loop to iterate and keep count of heads and tails
 		for (int i = 0; i < rolls; i++)
 		{
 			coin.toss();
-			System.out.println(coin.getSideUp());
 
 			if (coin.getSideUp() == "heads")
 			{
@@ -70,9 +70,32 @@ public class CoinTossSimulator
 			{
 				tailsCount++;
 			}
-		}
-		JOptionPane.showMessageDialog(null,"Heads count: " + headsCount + "\nTails count: " + tailsCount);
+			sb.append(coin.toString()).append("\n");
 
+		}
+
+		System.out.println(sb);
+		JOptionPane.showMessageDialog(null, "Heads count: " + headsCount + "\nTails count: " + tailsCount);
+
+	}
+
+	/**
+	 * Ask user if they would like to run the program again. If no then display
+	 * goodbye message.
+	 *
+	 * @return boolean to stop or continue the program
+	 */
+	private static Boolean runAgain()
+	{
+		boolean run = true;
+		int n = JOptionPane.showConfirmDialog(null, "Do you want to use the program again?", " Select an option",
+				JOptionPane.YES_NO_OPTION);
+		if (n == JOptionPane.NO_OPTION)
+		{
+			run = false;
+			JOptionPane.showMessageDialog(null, "Thanks for using the program!\nBye bye.");
+		}
+		return run;
 	}
 
 	/**
@@ -83,8 +106,13 @@ public class CoinTossSimulator
 
 	public static void main(String[] args)
 	{
-		playGame();
-	
+		Boolean runAgain = true;
+		while (runAgain)
+		{
+			playGame();
+			runAgain = runAgain();
+		}
+
 	}// close main
 
 }// close class

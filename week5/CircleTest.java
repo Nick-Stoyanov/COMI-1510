@@ -1,5 +1,5 @@
 /**
- * This clas test the <code>Circle</code> class.
+ * This class test the <code>Circle</code> class.
  */
 package chapter6;
 

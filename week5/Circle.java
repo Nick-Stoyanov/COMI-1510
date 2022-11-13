@@ -82,7 +82,7 @@ public class Circle
 	}
 
 	/**
-	 * This constructorsets the starting radius to 0
+	 * This constructor sets the starting radius to 0
 	 */
 	public Circle()
 	{
