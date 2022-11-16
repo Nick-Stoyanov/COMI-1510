@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 /**
  * Circle test
  * 
- * This class teste the <code>Circle</code> class.
+ * This class tests the <code>Circle</code> class.
  * 
  * @author Nikolay Stoyanov Nov 8, 2022
  */
