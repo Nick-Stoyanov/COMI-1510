@@ -14,83 +14,117 @@ import java.util.Comparator;
  */
 public class CircleList
 {
-	private int maxSize = 0;
-
-	public CircleList(int max)
-	{
-		maxSize = max;
-	}
-
 	Random rand = new Random();
 
-	public ArrayList<Circle> getArrayList()
+	private Circle[] array = null;
+	private Circle[] sortedArray = null;
+
+	private ArrayList<Circle> list = new ArrayList<Circle>();
+	private ArrayList<Circle> sortedList = new ArrayList<Circle>();
+
+	/**
+	 * Constructor creates Array and List
+	 * 
+	 * @param max max size of list
+	 */
+	public CircleList(int max)
 	{
-		ArrayList<Circle> list = new ArrayList<Circle>();
-		for (int i = 0; i < maxSize; i++)
+
+		int maxSize = max;
+
+		int listSize = rand.nextInt(maxSize) + 1;
+		System.out.println("List size: " + listSize);
+
+		for (int i = 0; i < listSize; i++)
 		{
 			list.add(new Circle(rand.nextInt(100) + 1));
 		}
-		return list;
-	}
+		list.addAll(sortedList);
 
-	public Circle[] getArray()
-	{
-		int size = rand.nextInt(maxSize);
-		System.out.println("Size: " + size);
-		Circle list[] = new Circle[size];
-
-		for (int i = 0; i < size; i++)
+		int arraySize = rand.nextInt(maxSize) + 1;
+		System.out.println("Array size: " + arraySize);
+		array = new Circle[arraySize];
+		sortedArray = new Circle[arraySize];
+		for (int i = 0; i < arraySize; i++)
 		{
-			list[i] = new Circle(size);
+			array[i] = new Circle(rand.nextInt(100) + 1);
+			sortedArray[i] = array[i];
 		}
-		return list;
 	}
 
-	public ArrayList<Circle> getSorterArrayList()
+	public void getList()
 	{
-		ArrayList<Circle> sortedArrayList = getArrayList();
-		Collections.sort(sortedArrayList, Comparator.comparing(Circle::getRadius));
-
-		return sortedArrayList;
-	}
-
-	public Circle[] getSortedArray()
-	{
-		Circle[] sortedArray = new Circle[getArray().length];
-		for (int i = 0; i < getArray().length; i++)
+		for (int i = 0; i < list.size(); i++)
 		{
-			sortedArray[i] = getArray()[i];
+			System.out.println("Radius of circle " + i + " in the list: " + list.get(i).getRadius());
 		}
-		int startScan;
-		int i;
-		int minIndex = 0;
-		double minValue = 0;
+	}
 
-		for (startScan = 0; startScan < sortedArray.length; i++)
+	public void getArray()
+	{
+		for (int i = 0; i < array.length; i++)
+			System.out.println("Radius of circle " + i + " in the array :" + array[i].getRadius());
+	}
+
+	public void setSorterList()
+	{
+		// list.addAll(sortedList);
+		// Collections.sort(sortedList, Comparator.comparing(Circle::getRadius));
+
+		for (int i = 0; i < sortedList.size(); i++)
 		{
-			minIndex = startScan;
-			minValue = sortedArray[startScan].getRadius();
-			for (i = startScan + 1; i < sortedArray.length; i++)
-			{
-				if (sortedArray[startScan].getRadius() < minValue)
-				{
-					minValue = sortedArray[startScan].getRadius();
-					minIndex = i;
+			System.out.println(sortedList.get(i).getRadius());
+
+		}
+
+	}
+
+	public void getSortedArray()
+	{
+		for (int i = 0; i < sortedArray.length; i++)
+			System.out.println("Radius of circle " + i + " in the array :" + sortedArray[i].getRadius());
+	}
+	
+	private void sortArray() {
+		int startScan =0;
+		int i =0;
+		int minI = 0;
+		double minRadius = 0;
+		
+		for (startScan =0; startScan < (sortedArray.length -1); startScan++) {
+			minI = startScan;
+			minRadius = sortedArray[startScan].getRadius();
+			for(i = startScan +1; i< sortedArray.length;i++) {
+				if (sortedArray[i].getRadius() < minRadius) {
+					minRadius = sortedArray[i].getRadius();
+					minI = i;
 				}
 			}
-			sortedArray[minIndex] = sortedArray[startScan];
-			// sortedArray[startScan].getRadius() = minValue;
+			sortedArray[minI].getRadius()=sortedArray[i].getRadius() ;
+			minRadius = sortedArray[startScan].getRadius();
 		}
-		return sortedArray;
-
 	}
 
-	public Double getArrayListMin(ArrayList<Circle> sortedArrayList)
+	/**
+	 * Gets min radius in list
+	 * 
+	 * @param sortedArrayList
+	 * 
+	 * @return min radius
+	 */
+	public Double getListMin(ArrayList<Circle> sortedList)
 	{
-		double min = sortedArrayList.get(0).getRadius();
+		double min = sortedList.get(0).getRadius();
 		return min;
 	}
 
+	/**
+	 * Gets max radius in list
+	 * 
+	 * @param sortedArrayList
+	 * 
+	 * @return max radius
+	 */
 	public Double getArrayListMax(ArrayList<Circle> sortedArrayList)
 	{
 		int lastPosition = sortedArrayList.size() - 1;
@@ -98,12 +132,26 @@ public class CircleList
 		return max;
 	}
 
+	/**
+	 * Gets min radius in array
+	 * 
+	 * @param sortedArray
+	 * 
+	 * @return min radius
+	 */
 	public Double getArrayMin(Circle[] sortedArray)
 	{
 		double min = sortedArray[0].getRadius();
 		return min;
 	}
 
+	/**
+	 * Gets max radius in array
+	 * 
+	 * @param sortedArray
+	 * 
+	 * @return max radius
+	 */
 	public Double getArrayMax(Circle[] sortedArray)
 	{
 		int lastPosition = sortedArray.length;
