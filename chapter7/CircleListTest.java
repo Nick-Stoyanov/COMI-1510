@@ -14,8 +14,12 @@ public class CircleListTest
 		CircleList listOne = new CircleList(6);
 		listOne.getList();
 		listOne.getArray();
-		listOne.setSorterList();
+		listOne.getSortedList();
 		listOne.getSortedArray();
+		listOne.getListMin();
+		listOne.getListMax();
+		listOne.getArrayMin();
+		listOne.getArrayMax();
 
 	}
 

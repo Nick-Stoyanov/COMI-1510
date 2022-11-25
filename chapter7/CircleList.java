@@ -5,9 +5,6 @@ package chapter7;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Collections;
-
-import java.util.Comparator;
 
 /**
  * @author Nikolay Stoyanov Nov 19, 2022
@@ -19,8 +16,8 @@ public class CircleList
 	private Circle[] array = null;
 	private Circle[] sortedArray = null;
 
-	private ArrayList<Circle> list = new ArrayList<Circle>();
-	private ArrayList<Circle> sortedList = new ArrayList<Circle>();
+	public ArrayList<Circle> list = new ArrayList<Circle>();
+	public ArrayList<Circle> sortedList = new ArrayList<Circle>();
 
 	/**
 	 * Constructor creates Array and List
@@ -38,8 +35,8 @@ public class CircleList
 		for (int i = 0; i < listSize; i++)
 		{
 			list.add(new Circle(rand.nextInt(100) + 1));
+			sortedList.add(i, list.get(i));
 		}
-		list.addAll(sortedList);
 
 		int arraySize = rand.nextInt(maxSize) + 1;
 		System.out.println("Array size: " + arraySize);
@@ -50,6 +47,8 @@ public class CircleList
 			array[i] = new Circle(rand.nextInt(100) + 1);
 			sortedArray[i] = array[i];
 		}
+		sortArray();
+
 	}
 
 	public void getList()
@@ -58,51 +57,84 @@ public class CircleList
 		{
 			System.out.println("Radius of circle " + i + " in the list: " + list.get(i).getRadius());
 		}
+		System.out.println("\n");
 	}
 
 	public void getArray()
 	{
 		for (int i = 0; i < array.length; i++)
+		{
 			System.out.println("Radius of circle " + i + " in the array :" + array[i].getRadius());
+		}
+		System.out.println("\n");
 	}
 
-	public void setSorterList()
+	public void sortList()
 	{
-		// list.addAll(sortedList);
-		// Collections.sort(sortedList, Comparator.comparing(Circle::getRadius));
+		int minI;
+		double minRadius;
 
-		for (int i = 0; i < sortedList.size(); i++)
+		for (int startScan = 0; startScan < sortedList.size() - 1; startScan++)
 		{
-			System.out.println(sortedList.get(i).getRadius());
+			minI = startScan;
+			minRadius = sortedList.get(startScan).getRadius();
+			for (int i = startScan + 1; i < sortedList.size(); i++)
+			{
+				if (sortedList.get(i).getRadius() < minRadius)
+				{
+					minRadius = sortedList.get(i).getRadius();
+					minI = i;
+				}
+			}
+			Circle temp = sortedList.get(startScan);
+			sortedList.set((startScan), sortedList.get(minI));
+			sortedList.set((minI), temp);
 
 		}
 
+	}
+
+	public void getSortedList()
+	{
+		for (int i = 0; i < sortedList.size(); i++)
+		{
+			System.out.println("Radius of circle " + i + " in the sorted list :" + sortedList.get(i).getRadius());
+
+		}
+		System.out.println("\n");
+	}
+
+	private void sortArray()
+	{
+		int minI;
+		double minRadius;
+
+		for (int startScan = 0; startScan < sortedArray.length - 1; startScan++)
+		{
+			minI = startScan;
+			minRadius = sortedArray[startScan].getRadius();
+			for (int i = startScan + 1; i < sortedArray.length; i++)
+			{
+				if (sortedArray[i].getRadius() < minRadius)
+				{
+					minRadius = sortedArray[i].getRadius();
+					minI = i;
+				}
+			}
+			Circle temp = sortedArray[startScan];
+			sortedArray[startScan] = sortedArray[minI];
+			sortedArray[minI] = temp;
+		}
 	}
 
 	public void getSortedArray()
 	{
 		for (int i = 0; i < sortedArray.length; i++)
-			System.out.println("Radius of circle " + i + " in the array :" + sortedArray[i].getRadius());
-	}
-	
-	private void sortArray() {
-		int startScan =0;
-		int i =0;
-		int minI = 0;
-		double minRadius = 0;
-		
-		for (startScan =0; startScan < (sortedArray.length -1); startScan++) {
-			minI = startScan;
-			minRadius = sortedArray[startScan].getRadius();
-			for(i = startScan +1; i< sortedArray.length;i++) {
-				if (sortedArray[i].getRadius() < minRadius) {
-					minRadius = sortedArray[i].getRadius();
-					minI = i;
-				}
-			}
-			sortedArray[minI].getRadius()=sortedArray[i].getRadius() ;
-			minRadius = sortedArray[startScan].getRadius();
+		{
+			System.out.println("Radius of circle " + i + " in the sorted array :" + sortedArray[i].getRadius());
+
 		}
+		System.out.println("\n");
 	}
 
 	/**
@@ -112,10 +144,10 @@ public class CircleList
 	 * 
 	 * @return min radius
 	 */
-	public Double getListMin(ArrayList<Circle> sortedList)
+	public void getListMin()
 	{
 		double min = sortedList.get(0).getRadius();
-		return min;
+		System.out.println("Min value in list: " + min);
 	}
 
 	/**
@@ -125,11 +157,11 @@ public class CircleList
 	 * 
 	 * @return max radius
 	 */
-	public Double getArrayListMax(ArrayList<Circle> sortedArrayList)
+	public void getListMax()
 	{
-		int lastPosition = sortedArrayList.size() - 1;
-		double max = sortedArrayList.get(lastPosition).getRadius();
-		return max;
+		int lastPosition = sortedList.size() - 1;
+		double max = sortedList.get(lastPosition).getRadius();
+		System.out.println("Max value in list: " + max);
 	}
 
 	/**
@@ -139,10 +171,10 @@ public class CircleList
 	 * 
 	 * @return min radius
 	 */
-	public Double getArrayMin(Circle[] sortedArray)
+	public void getArrayMin()
 	{
 		double min = sortedArray[0].getRadius();
-		return min;
+		System.out.println("Min value in array: " + min);
 	}
 
 	/**
@@ -152,10 +184,10 @@ public class CircleList
 	 * 
 	 * @return max radius
 	 */
-	public Double getArrayMax(Circle[] sortedArray)
+	public void getArrayMax()
 	{
 		int lastPosition = sortedArray.length;
 		double max = sortedArray[lastPosition - 1].getRadius();
-		return max;
+		System.out.println("Max value in array: " + max);
 	}
 }
