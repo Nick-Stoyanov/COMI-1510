@@ -13,8 +13,8 @@ public class CircleList
 {
 	Random rand = new Random();
 
-	private Circle[] array = null;
-	private Circle[] sortedArray = null;
+	public Circle[] array = null;
+	public Circle[] sortedArray = null;
 
 	public ArrayList<Circle> list = new ArrayList<Circle>();
 	public ArrayList<Circle> sortedList = new ArrayList<Circle>();
@@ -37,6 +37,7 @@ public class CircleList
 			list.add(new Circle(rand.nextInt(100) + 1));
 			sortedList.add(i, list.get(i));
 		}
+		sortList();
 
 		int arraySize = rand.nextInt(maxSize) + 1;
 		System.out.println("Array size: " + arraySize);
@@ -69,29 +70,28 @@ public class CircleList
 		System.out.println("\n");
 	}
 
-	public void sortList()
+	private void sortList()
 	{
-		int minI;
+
+		int minRadiusIndex;
 		double minRadius;
 
 		for (int startScan = 0; startScan < sortedList.size() - 1; startScan++)
 		{
-			minI = startScan;
+			minRadiusIndex = startScan;
 			minRadius = sortedList.get(startScan).getRadius();
 			for (int i = startScan + 1; i < sortedList.size(); i++)
 			{
 				if (sortedList.get(i).getRadius() < minRadius)
 				{
 					minRadius = sortedList.get(i).getRadius();
-					minI = i;
+					minRadiusIndex = i;
 				}
 			}
-			Circle temp = sortedList.get(startScan);
-			sortedList.set((startScan), sortedList.get(minI));
-			sortedList.set((minI), temp);
-
+			Circle temp = sortedArray[startScan];
+			sortedList.set(startScan, sortedList.get(minRadiusIndex));
+			sortedList.set(minRadiusIndex, temp);
 		}
-
 	}
 
 	public void getSortedList()
