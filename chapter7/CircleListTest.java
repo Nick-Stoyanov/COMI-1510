@@ -20,6 +20,16 @@ public class CircleListTest
 		listOne.getListMax();
 		listOne.getArrayMin();
 		listOne.getArrayMax();
+		
+		CircleList listTwo = new CircleList(60);
+		listTwo.getList();
+		listTwo.getSortedList();
+		listTwo.getArray();
+		listTwo.getSortedArray();
+		listTwo.getListMin();
+		listTwo.getListMax();
+		listTwo.getArrayMin();
+		listTwo.getArrayMax();
 
 	}
 

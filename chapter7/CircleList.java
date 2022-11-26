@@ -35,7 +35,7 @@ public class CircleList
 		for (int i = 0; i < listSize; i++)
 		{
 			list.add(new Circle(rand.nextInt(100) + 1));
-			sortedList.add(i, list.get(i));
+			// sortedList.add(i, list.get(i));
 		}
 		sortList();
 
@@ -72,27 +72,41 @@ public class CircleList
 
 	private void sortList()
 	{
-
-		int minRadiusIndex;
-		double minRadius;
-
-		for (int startScan = 0; startScan < sortedList.size() - 1; startScan++)
+		Circle zero = new Circle(101);
+		ArrayList<Circle> tempList = new ArrayList<Circle>();
+		for (int i = 0; i < list.size(); i++)
+		{	
+			tempList.add(i, list.get(i));
+		}
+		for (int i = 0; i < tempList.size(); i++)
 		{
-			minRadiusIndex = startScan;
-			minRadius = sortedList.get(startScan).getRadius();
-			for (int i = startScan + 1; i < sortedList.size(); i++)
+			Circle min = tempList.get(0);
+			int minIndex = 0;
+			for (int j = 0; j < tempList.size(); j++)
 			{
-				if (sortedList.get(i).getRadius() < minRadius)
+				if (tempList.get(j).getRadius() < min.getRadius())
 				{
-					minRadius = sortedList.get(i).getRadius();
-					minRadiusIndex = i;
+					min = list.get(j);
+					minIndex = j;
 				}
 			}
-			Circle temp = sortedArray[startScan];
-			sortedList.set(startScan, sortedList.get(minRadiusIndex));
-			sortedList.set(minRadiusIndex, temp);
+			sortedList.add(min);
+
+			tempList.set(minIndex, zero);
 		}
 	}
+	/*
+	 * private void sortList() {
+	 * 
+	 * int minRadiusIndex; double minRadius;
+	 * 
+	 * for (int startScan = 0; startScan < list.size() - 1; startScan++) { minRadiusIndex = startScan; minRadius =
+	 * list.get(startScan).getRadius(); for (int i = startScan + 1; i < list.size(); i++) { if (list.get(i).getRadius()
+	 * < minRadius) { minRadius = list.get(i).getRadius(); minRadiusIndex = i; } } //Circle temp =
+	 * sortedArray[startScan]; //sortedList.add(list.get(minRadiusIndex));
+	 * 
+	 * //sortedList.set(startScan, sortedList.get(minRadiusIndex)); //sortedList.set(minRadiusIndex, temp); } }
+	 */
 
 	public void getSortedList()
 	{
