@@ -1,23 +1,36 @@
 /**
- * 
+ * This class creates a list and array of circles and performs operations on
+ * them then displays results.
  */
 package chapter7;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import java.util.Random;
+import java.util.Collections;
 
 /**
+ * Creating circles and performing operations on them.
+ * 
  * @author Nikolay Stoyanov Nov 19, 2022
  */
 public class CircleList
 {
+	// Create new random object
 	Random rand = new Random();
 
-	public Circle[] array = null;
-	public Circle[] sortedArray = null;
+	// Instantiate new array.
+	private Circle[] array = null;
+	// Instantiate new array to hold sorted array.
+	private Circle[] sortedArray = null;
 
-	public ArrayList<Circle> list = new ArrayList<Circle>();
-	public ArrayList<Circle> sortedList = new ArrayList<Circle>();
+	// Instantiate new array list
+	private ArrayList<Circle> list = new ArrayList<Circle>();
+	// Instantiate new array list to hold sorted array list
+	private ArrayList<Circle> sortedList = new ArrayList<Circle>();
+
+	// Instantiate metrics string builder to hold results.
+	private StringBuilder metrics = new StringBuilder();
 
 	/**
 	 * Constructor creates Array and List
@@ -27,55 +40,107 @@ public class CircleList
 	public CircleList(int max)
 	{
 
+		// Declare man size of lists and append to sb
 		int maxSize = max;
+		metrics.append("Maximum size circles in this version: " + maxSize + "\n");
 
+		// Create list with random size
 		int listSize = rand.nextInt(maxSize) + 1;
-		System.out.println("List size: " + listSize);
 
+		// Populate list
 		for (int i = 0; i < listSize; i++)
 		{
 			list.add(new Circle(rand.nextInt(100) + 1));
-			// sortedList.add(i, list.get(i));
+
 		}
+		// Call sort function
 		sortList();
 
+		// Create array with random size
 		int arraySize = rand.nextInt(maxSize) + 1;
-		System.out.println("Array size: " + arraySize);
+
+		// Create new array.
 		array = new Circle[arraySize];
+		// Create new array to hold sorted array.
 		sortedArray = new Circle[arraySize];
+		// Populate both arrays
 		for (int i = 0; i < arraySize; i++)
 		{
 			array[i] = new Circle(rand.nextInt(100) + 1);
 			sortedArray[i] = array[i];
 		}
+		// Call methods
 		sortArray();
+		compareLengths();
+		compareMins();
+		compareMaxs();
+		compareAverage();
 
 	}
 
-	public void getList()
+	/**
+	 * Method appends all toString information to sb
+	 */
+	public String toString()
 	{
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nArray size: " + array.length);
+		sb.append("\nList size: " + list.size());
+		sb.append("\n");
+
 		for (int i = 0; i < list.size(); i++)
 		{
-			System.out.println("Radius of circle " + i + " in the list: " + list.get(i).getRadius());
-		}
-		System.out.println("\n");
-	}
+			sb.append("Unsorted list: " + list.get(i).toString()).append("\n");
 
-	public void getArray()
-	{
-		for (int i = 0; i < array.length; i++)
+		}
+		for (int i = 0; i < list.size(); i++)
 		{
-			System.out.println("Radius of circle " + i + " in the array :" + array[i].getRadius());
+
+			sb.append("Sorted List: " + sortedList.get(i).toString()).append("\n");
 		}
-		System.out.println("\n");
+		for (int j = 0; j < array.length; j++)
+		{
+			sb.append("Unsorted array: " + array[j].toString()).append("\n");
+			// sb.append("Sorted array:"+sortedArray[j].toString()).append("\n");
+		}
+		for (int j = 0; j < array.length; j++)
+		{
+
+			sb.append("Sorted array:" + sortedArray[j].toString()).append("\n");
+		}
+		ArrayList<Circle> arrayToList = new ArrayList<Circle>();
+		Collections.addAll(arrayToList, array);
+
+		for (int i = 0; i < arrayToList.size(); i++)
+		{
+			sb.append("Array to list conversion: " + arrayToList.get(i).toString()).append("\n");
+
+		}
+		Circle[] listToArray = list.toArray(new Circle[0]);
+		for (int i = 0; i < listToArray.length; i++)
+		{
+			sb.append("List to array converstion: " + listToArray[i].toString()).append("\n");
+		}
+
+		sb.append("\nSmallest radius in the array is: " + sortedArray[0]);
+		sb.append("\nBiggest radius in the array is: " + sortedArray[sortedArray.length - 1]);
+		sb.append("\nSmallers radius in the list is: " + sortedList.get(0));
+		sb.append("\nLargest Radius in the list is: " + sortedList.get(sortedList.size() - 1));
+
+		return sb.toString();
+
 	}
 
+	/**
+	 * Sort List of Circles
+	 */
 	private void sortList()
 	{
 		Circle zero = new Circle(101);
 		ArrayList<Circle> tempList = new ArrayList<Circle>();
 		for (int i = 0; i < list.size(); i++)
-		{	
+		{
 			tempList.add(i, list.get(i));
 		}
 		for (int i = 0; i < tempList.size(); i++)
@@ -95,29 +160,10 @@ public class CircleList
 			tempList.set(minIndex, zero);
 		}
 	}
-	/*
-	 * private void sortList() {
-	 * 
-	 * int minRadiusIndex; double minRadius;
-	 * 
-	 * for (int startScan = 0; startScan < list.size() - 1; startScan++) { minRadiusIndex = startScan; minRadius =
-	 * list.get(startScan).getRadius(); for (int i = startScan + 1; i < list.size(); i++) { if (list.get(i).getRadius()
-	 * < minRadius) { minRadius = list.get(i).getRadius(); minRadiusIndex = i; } } //Circle temp =
-	 * sortedArray[startScan]; //sortedList.add(list.get(minRadiusIndex));
-	 * 
-	 * //sortedList.set(startScan, sortedList.get(minRadiusIndex)); //sortedList.set(minRadiusIndex, temp); } }
+
+	/**
+	 * Sort Array of Circles
 	 */
-
-	public void getSortedList()
-	{
-		for (int i = 0; i < sortedList.size(); i++)
-		{
-			System.out.println("Radius of circle " + i + " in the sorted list :" + sortedList.get(i).getRadius());
-
-		}
-		System.out.println("\n");
-	}
-
 	private void sortArray()
 	{
 		int minI;
@@ -141,67 +187,127 @@ public class CircleList
 		}
 	}
 
-	public void getSortedArray()
+	/**
+	 * Compare the length of array and list and appends results to metrics
+	 */
+	public void compareLengths()
 	{
-		for (int i = 0; i < sortedArray.length; i++)
+		double arrayLength = array.length;
+		double listLength = list.size();
+
+		Double sizeDif = 0.0;
+
+		if (arrayLength > listLength)
 		{
-			System.out.println("Radius of circle " + i + " in the sorted array :" + sortedArray[i].getRadius());
+			sizeDif = arrayLength / listLength;
+			metrics.append(String.format("Array is longer than list by: %%%.2f", ((sizeDif * 100) - 100)));
 
+		} else if (arrayLength < listLength)
+		{
+
+			sizeDif = listLength / arrayLength;
+			metrics.append(String.format("List is longer than array by: %%%.2f", ((sizeDif * 100) - 100)));
+		} else
+		{
+			metrics.append("List and array are the same size.");
 		}
-		System.out.println("\n");
+
 	}
 
 	/**
-	 * Gets min radius in list
-	 * 
-	 * @param sortedArrayList
-	 * 
-	 * @return min radius
+	 * Compares both min values for redius and appends results to metrics.
 	 */
-	public void getListMin()
+	private void compareMins()
 	{
-		double min = sortedList.get(0).getRadius();
-		System.out.println("Min value in list: " + min);
+		Double sizeDif = 0.0;
+		Double listMin = sortedList.get(0).getRadius();
+		Double arrayMin = sortedArray[0].getRadius();
+		if (arrayMin > listMin)
+		{
+			sizeDif = listMin / arrayMin;
+			metrics.append(String.format("\nMinimum radius in list is smaller than minimum array of list by : %%%.2f",
+					(sizeDif * 100)));
+
+		} else if (arrayMin < listMin)
+		{
+			sizeDif = arrayMin / listMin;
+			metrics.append(String.format("\nMinimum radius is array is smaller than minimum radius of list by : %%%.2f",
+					(sizeDif * 100)));
+		} else
+		{
+			metrics.append("\nMinumum radius of both list and array are equal.");
+		}
 	}
 
 	/**
-	 * Gets max radius in list
-	 * 
-	 * @param sortedArrayList
-	 * 
-	 * @return max radius
+	 * Compares both max values for radius and appends result to metrics.
 	 */
-	public void getListMax()
+	private void compareMaxs()
 	{
-		int lastPosition = sortedList.size() - 1;
-		double max = sortedList.get(lastPosition).getRadius();
-		System.out.println("Max value in list: " + max);
+		Double sizeDif = 0.0;
+		Double listMax = sortedList.get(sortedList.size() - 1).getRadius();
+		Double arrayMax = sortedArray[sortedArray.length - 1].getRadius();
+
+		if (arrayMax > listMax)
+		{
+			sizeDif = listMax / arrayMax;
+			metrics.append(String.format("\nMaximum radius in list is smaller than maximum radius in array by : %%%.2f",
+					(sizeDif * 100)));
+		} else if (arrayMax < listMax)
+		{
+			sizeDif = arrayMax / listMax;
+			metrics.append(String.format("\nMaximum radius in array is smaller than maximum array in list by : %%%.2f",
+					(sizeDif * 100)));
+		} else
+		{
+			metrics.append("\nMaximum radius of both list and array are equal.");
+		}
 	}
 
 	/**
-	 * Gets min radius in array
-	 * 
-	 * @param sortedArray
-	 * 
-	 * @return min radius
+	 * Compares average radius size of list and array and appends result to metrics.
 	 */
-	public void getArrayMin()
+	private void compareAverage()
 	{
-		double min = sortedArray[0].getRadius();
-		System.out.println("Min value in array: " + min);
+		Double sizeDif = 0.0;
+		Double arrayTotal = 0.0;
+
+		Double listTotal = 0.0;
+
+		for (int i = 0; i < array.length; i++)
+		{
+			arrayTotal += array[i].getRadius();
+		}
+		for (int i = 0; i < list.size(); i++)
+		{
+			listTotal += list.get(i).getRadius();
+		}
+
+		Double arrayAverage = arrayTotal / array.length;
+		Double listAverage = listTotal / list.size();
+
+		if (arrayAverage > listAverage)
+		{
+			sizeDif = listAverage / arrayAverage;
+			metrics.append(String.format("\nList average radius is smaller than Array average radius by: %%%.2f",
+					(sizeDif * 100)));
+		} else if (arrayAverage < listAverage)
+		{
+			sizeDif = arrayAverage / listAverage;
+			metrics.append(String.format("\nArray average radius is smaller than List average radius by: %%%.2f",
+					(sizeDif * 100)));
+		} else
+		{
+			metrics.append("\nAverage radius of both List and Array are equal.");
+		}
+
 	}
 
 	/**
-	 * Gets max radius in array
-	 * 
-	 * @param sortedArray
-	 * 
-	 * @return max radius
+	 * Displays metrics to user.
 	 */
-	public void getArrayMax()
+	public void getMetrics()
 	{
-		int lastPosition = sortedArray.length;
-		double max = sortedArray[lastPosition - 1].getRadius();
-		System.out.println("Max value in array: " + max);
+		JOptionPane.showMessageDialog(null, metrics);
 	}
 }
