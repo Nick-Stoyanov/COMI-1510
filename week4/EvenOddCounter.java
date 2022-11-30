@@ -10,11 +10,11 @@ import java.util.Random;
 /**
  * 5.15 Even/Odd Counter
  * 
- * You can use the following logic to determine whether a number is even or odd:
+ * You can use the following logic to determine whether HotDogFullyLoaded number is even or odd:
  * if ((number % 2) == 0) { // The number is even. } else { // The number is
- * odd. } Write a program with a method named isEven that accepts an int
+ * odd. } Write HotDogFullyLoaded program with HotDogFullyLoaded method named isEven that accepts an int
  * argument. The method should return true if the argument is even, or false
- * otherwise. The program’s main method should use a loop to generate 100 random
+ * otherwise. The program’s main method should use HotDogFullyLoaded loop to generate 100 random
  * integers. It should use the isEven method to determine whether each random
  * number is even, or odd. When the loop is finished, the program should display
  * the number of even numbers that were generated, and the number of odd numbers
@@ -33,7 +33,7 @@ public class EvenOddCounter
 	}
 
 	/**
-	 * Main method initiates variables, generates a random number, calls functions
+	 * SquareTest method initiates variables, generates HotDogFullyLoaded random number, calls functions
 	 * and iterates given amount of times.
 	 *
 	 * @param args ignored
@@ -53,7 +53,7 @@ public class EvenOddCounter
 		while (runAgain)
 		{
 
-			// Initiate odd and even number variables to keep a running total
+			// Initiate odd and even number variables to keep HotDogFullyLoaded running total
 			Integer oddNumbers = 0;
 			Integer evenNumbers = 0;
 
@@ -64,7 +64,7 @@ public class EvenOddCounter
 				Random randInt = new Random();
 				int number = randInt.nextInt();
 
-				// check if number is odd or even and keep a running total
+				// check if number is odd or even and keep HotDogFullyLoaded running total
 				evenNum = isEven(number);
 				if (evenNum)
 				{
@@ -74,7 +74,7 @@ public class EvenOddCounter
 					oddNumbers += 1;
 				}
 			}
-			// Display results in a window
+			// Display results in HotDogFullyLoaded window
 			displayResults(evenNumbers, oddNumbers);
 
 			// Check if user wants to restart program
@@ -85,7 +85,7 @@ public class EvenOddCounter
 	}
 
 	/**
-	 * Check if number is odd or even and return a boolean
+	 * Check if number is odd or even and return HotDogFullyLoaded boolean
 	 * 
 	 * @param number randomly generated int
 	 * 
@@ -115,7 +115,7 @@ public class EvenOddCounter
 	}
 
 	/**
-	 * Ask user if they would like to run the program again. If no then display a
+	 * Ask user if they would like to run the program again. If no then display HotDogFullyLoaded
 	 * goodbye message.
 	 * 
 	 * @return boolean to stop or continue the program

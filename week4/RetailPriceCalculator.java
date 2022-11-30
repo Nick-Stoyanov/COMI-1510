@@ -9,20 +9,26 @@ import javax.swing.JOptionPane;
 /**
  * 4.2 Retail Price Calculator
  * 
- * Write a program that asks the user to enter an item’s wholesale cost and its
- * markup percentage. It should then display the item’s retail price. For
- * example: If an item’s wholesale cost is 5.00 and its markup percentage is 100
- * percent, then the item’s retail price is 10.00. If an item’s wholesale cost
- * is 5.00 and its markup percentage is 50 percent, then the item’s retail price
- * is 7.50. The program should have a method named calculateRetail that receives
- * the wholesale cost and the markup percentage as arguments, and returns the
- * retail price of the item.
+ * Write a program that asks the user to enter an item’s wholesale cost and its markup percentage. It
+ * should then display the item’s retail price. For example: If an item’s wholesale cost is 5.00 and its markup
+ * percentage is 100 percent, then the item’s retail price is 10.00. If an item’s wholesale cost is 5.00 and its markup
+ * percentage is 50 percent, then the item’s retail price is 7.50. The program should have a method
+ * named calculateRetail that receives the wholesale cost and the markup percentage as arguments, and returns the retail
+ * price of the item.
  * 
  * 
  * @author Nikolay Stoyanov Oct 25, 2022
  */
 public class RetailPriceCalculator
 {
+
+	/**
+	 * Default constructor
+	 */
+	public RetailPriceCalculator()
+	{
+		super();
+	}
 
 	/**
 	 * Main method declares variables and calls methods
@@ -43,16 +49,16 @@ public class RetailPriceCalculator
 
 			// Get wholesale proice
 			wholesalePrice = getWholesalePrice();
-			
+
 			// Get markup and validate that input is not a negative number
 			markup = getMarkup();
-			
+
 			// Calculate the retain price
 			retailPrice = calculateRetail(wholesalePrice, markup);
-			
+
 			// Display the results
 			displayResults(retailPrice);
-			
+
 			// Check if user wants to restart program
 			runAgain = runAgain();
 		}
@@ -69,8 +75,6 @@ public class RetailPriceCalculator
 		Double number = Double.parseDouble(inputNumber);
 		return number;
 	}
-	
-	
 
 	/**
 	 * Prompt user to enter markup and validate it's not a negative number
@@ -93,7 +97,8 @@ public class RetailPriceCalculator
 	 * Calculate the retail price
 	 * 
 	 * @param wholesalePrice user wholesale price input
-	 * @param markup user markup input
+	 * @param markup         user markup input
+	 * 
 	 * @return retail price
 	 */
 	public static double calculateRetail(Double wholesalePrice, Double markup)
@@ -113,12 +118,11 @@ public class RetailPriceCalculator
 	}
 
 	/**
-	 *  Ask user if they would like to run the program again. If no then display
-	 *  goodbye message.
-	 *  
+	 * Ask user if they would like to run the program again. If no then display goodbye message.
+	 * 
 	 * @return booleam to stop or continue program
 	 */
-	
+
 	public static Boolean runAgain()
 	{
 		Boolean play = true;

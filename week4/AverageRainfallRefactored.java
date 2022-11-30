@@ -35,7 +35,7 @@ public class AverageRainfallRefactored
 	}
 
 	/**
-	 * Main method collects input and display results
+	 * SquareTest method collects input and display results
 	 * 
 	 * @param args ignored
 	 */

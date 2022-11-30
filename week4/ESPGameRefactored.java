@@ -87,7 +87,7 @@ public class ESPGameRefactored
 		for (int i = 1; i <= numberOfPlays; i++)
 		{
 			// Get user input
-			String inputColor = JOptionPane.showInputDialog("Enter a color: ");
+			String inputColor = JOptionPane.showInputDialog("Enter color: ");
 			StringBuilder color = new StringBuilder();
 
 			// Generate random number and assign it to color variable based or random number

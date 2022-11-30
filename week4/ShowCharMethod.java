@@ -8,19 +8,26 @@ import javax.swing.JOptionPane;
 /**
  * 5.1 showChar Method
  * 
- * Write a method named showChar. The method should accept two arguments: a
- * reference to a String object and an integer. The integer argument is a
- * character position within the String, with the first character being at
- * position 0. When the method executes, it should display the character at that
- * character position. Here is an example of a call to the method: showChar("New
- * York", 2); In this call, the method will display the character w because it
- * is in position 2. Demonstrate the method in a complete program.
+ * Write a method named showChar. The method should accept two arguments: a reference to
+ * a String object and an integer. The integer argument is a character position within
+ * the String, with the first character being at position 0. When the method executes, it should display the character
+ * at that character position. Here is an example of a call to the method: showChar("New York", 2); In
+ * this call, the method will display the character w because it is in position 2. Demonstrate the method in
+ * a complete program.
  * 
  * 
  * @author Nikolay Stoyanov Oct 25, 2022
  */
 public class ShowCharMethod
 {
+
+	/**
+	 * Defaults constructor
+	 */
+	public ShowCharMethod()
+	{
+		super();
+	}
 
 	/**
 	 * Main method declares variables and calls methods
@@ -70,9 +77,8 @@ public class ShowCharMethod
 	}
 
 	/**
-	 * Prompts user to enter the number of the character to find in the string.
-	 * Program also validates that the number does not exceed the string length, if
-	 * it does it asks the user to reenter number.
+	 * Prompts user to enter the number of the character to find in the string. Program also validates that the number
+	 * does not exceed the string length, if it does it asks the user to reenter number.
 	 * 
 	 * @param userString user string input
 	 * 
@@ -110,8 +116,8 @@ public class ShowCharMethod
 	}
 
 	/**
-	 * Display results. If the results is an empty space the program display a
-	 * slightly different message
+	 * Display results. If the results is an empty space the program display a slightly different
+	 * message
 	 * 
 	 * @param userChar character at given position selected by user
 	 */
@@ -127,8 +133,7 @@ public class ShowCharMethod
 	}
 
 	/**
-	 * Ask user if they would like to run the program again. If no then display a
-	 * goodbye message.
+	 * Ask user if they would like to run the program again. If no then display a goodbye message.
 	 * 
 	 * @return boolean to stop or continue the program
 	 */
