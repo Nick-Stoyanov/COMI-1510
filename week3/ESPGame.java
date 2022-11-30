@@ -26,7 +26,18 @@ import java.util.Random;
 public class ESPGame
 {
 
-	// Main method gets input and loops through then display results
+	/**
+	 * Default constructor
+	 */
+	public ESPGame()
+	{
+		super();
+	}
+
+	/**
+	 *  Main method gets input and loops through then display results
+	 * @param args ignored
+	 */
 	public static void main(String[] args)
 	{
 

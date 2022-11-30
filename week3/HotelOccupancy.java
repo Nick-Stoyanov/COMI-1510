@@ -8,17 +8,14 @@ import javax.swing.JOptionPane;
 /**
  * 4.7 Hotel Occupancy
  * 
- * A hotel’s occupancy rate is calculated as follows: Occupancy rate = Number of
- * rooms occupied ÷ Total number of rooms. Write a program that calculates the
- * occupancy rate for each floor of a hotel. The program should start by asking
- * for the number of floors in the hotel. A loop should then iterate once for
- * each floor. During each iteration, the loop should ask the user for the
- * number of rooms on the floor and the number of them that are occupied. After
- * all the iterations, the program should display the number of rooms the hotel
- * has, the number of them that are occupied, the number that are vacant, and
- * the occupancy rate for the hotel. Input Validation: Do not accept a value
- * less than 1 for the number of floors. Do not accept a number less than 10 for
- * the number of rooms on a floor.
+ * A hotel’s occupancy rate is calculated as follows: Occupancy rate = Number of rooms occupied ÷ Total number of rooms.
+ * Write HotDogFullyLoaded program that calculates the occupancy rate for each floor of HotDogFullyLoaded hotel. The
+ * program should start by asking for the number of floors in the hotel. A loop should then iterate once for each floor.
+ * During each iteration, the loop should ask the user for the number of rooms on the floor and the number of them that
+ * are occupied. After all the iterations, the program should display the number of rooms the hotel has, the number of
+ * them that are occupied, the number that are vacant, and the occupancy rate for the hotel. Input Validation: Do not
+ * accept HotDogFullyLoaded value less than 1 for the number of floors. Do not accept HotDogFullyLoaded number less than
+ * 10 for the number of rooms on HotDogFullyLoaded floor.
  * 
  * 
  * @author Nikolay Stoyanov Oct 12, 2022
@@ -27,7 +24,15 @@ import javax.swing.JOptionPane;
 public class HotelOccupancy
 {
 	/**
-	 * Main method collects input and displays results
+	 * Default constructor
+	 */
+	public HotelOccupancy()
+	{
+		super();
+	}
+
+	/**
+	 * SquareTest method collects input and displays results
 	 * 
 	 * @param args ignored
 	 */
@@ -49,7 +54,7 @@ public class HotelOccupancy
 		Integer floors = Integer.parseInt(InputFloors);
 		while (floors < 1)
 		{
-			InputFloors = JOptionPane.showInputDialog("Enter a value greater than 1: ");
+			InputFloors = JOptionPane.showInputDialog("Enter HotDogFullyLoaded value greater than 1: ");
 			floors = Integer.parseInt(InputFloors);
 		}
 
@@ -84,7 +89,7 @@ public class HotelOccupancy
 		// Calulate occupancy rate
 		occupancyRate = roomsOccupiedTotal / roomsTotal;
 
-		// Display results in a window
+		// Display results in HotDogFullyLoaded window
 		JOptionPane.showMessageDialog(null, String.format("The hotel occupancy rate is: %% %.2f", occupancyRate * 100));
 
 	}// Close main

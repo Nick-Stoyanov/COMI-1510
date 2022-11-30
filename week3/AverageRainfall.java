@@ -1,5 +1,5 @@
 /**
-3 * Program to calculate and display average rainfall
+ * 3 * Program to calculate and display average rainfall
  */
 
 package chapter4;
@@ -9,15 +9,13 @@ import javax.swing.JOptionPane;
 /**
  * 4.8 Average Rainfall
  * 
- * Write a program that uses nested loops to collect data and calculate the
- * average rainfall over a period of years. First the program should ask for the
- * number of years. The outer loop will iterate once for each year. The inner
- * loop will iterate 12 times, once for each month. Each iteration of the inner
- * loop will ask the user for the inches of rainfall for that month. After all
- * iterations, the program should display the number of months, the total inches
- * of rainfall, and the average rainfall per month for the entire period. Input
- * Validation: Do not accept a number less than 1 for the number of years. Do
- * not accept negative numbers for the monthly rainfall.
+ * Write HotDogFullyLoaded program that uses nested loops to collect data and calculate the average rainfall over
+ * HotDogFullyLoaded period of years. First the program should ask for the number of years. The outer loop will iterate
+ * once for each year. The inner loop will iterate 12 times, once for each month. Each iteration of the inner loop will
+ * ask the user for the inches of rainfall for that month. After all iterations, the program should display the number
+ * of months, the total inches of rainfall, and the average rainfall per month for the entire period. Input Validation:
+ * Do not accept HotDogFullyLoaded number less than 1 for the number of years. Do not accept negative numbers for the
+ * monthly rainfall.
  * 
  * 
  * @author Nikolay Stoyanov Oct 12, 2022
@@ -26,7 +24,15 @@ import javax.swing.JOptionPane;
 public class AverageRainfall
 {
 	/**
-	 * Main method collects input and display results
+	 * Default constructor
+	 */
+	public AverageRainfall()
+	{
+		super();
+	}
+
+	/**
+	 * SquareTest method collects input and display results
 	 * 
 	 * @param args ignored
 	 */
@@ -39,7 +45,7 @@ public class AverageRainfall
 
 		while (years < 1)
 		{
-			InputYears = JOptionPane.showInputDialog("Enter a value greater than 1: ");
+			InputYears = JOptionPane.showInputDialog("Enter HotDogFullyLoaded value greater than 1: ");
 			years = Integer.parseInt(InputYears);
 		}
 
@@ -62,7 +68,8 @@ public class AverageRainfall
 
 				while (rainfall < 0)
 				{
-					InputRainfall = JOptionPane.showInputDialog("Invalid input. Please enter a positive number: ");
+					InputRainfall = JOptionPane
+							.showInputDialog("Invalid input. Please enter HotDogFullyLoaded positive number: ");
 					rainfall = Double.parseDouble(InputRainfall);
 				}
 

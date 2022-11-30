@@ -12,13 +12,11 @@ import java.io.IOException;
 /**
  * 4.15 Uppercase File Conversion
  * 
- * Write a program that asks the user for the names of two files. The first file
- * should be opened for reading and the second file should be opened for
- * writing. The program should read the contents of the first file, change all
- * characters to uppercase, and store the results in the second file. The second
- * file will be a copy of the first file, except that all the characters will be
- * uppercase. Use Notepad or another text editor to create a simple file that
- * can be used to test the program.
+ * Write a program that asks the user for the names of two files. The first file should be opened for reading and the
+ * second file should be opened for writing. The program should read the contents of the first file, change all
+ * characters to uppercase, and store the results in the second file. The second file will be a copy of the first file,
+ * except that all the characters will be uppercase. Use Notepad or another text editor to create a simple file that can
+ * be used to test the program.
  * 
  * 
  * @author Nikolay Stoyanov Oct 13, 2022
@@ -28,11 +26,19 @@ public class UppercaseFileConverter
 {
 
 	/**
+	 * Default constructor
+	 */
+	public UppercaseFileConverter()
+	{
+		super();
+	}
+
+	/**
 	 * Main method gets input, converts to uppercase and appends to output file
 	 * 
 	 * @param args ignored
 	 * 
-	 * @throws IOException
+	 * @throws IOException exception if file not found
 	 */
 	public static void main(String[] args) throws IOException
 	{
@@ -67,7 +73,7 @@ public class UppercaseFileConverter
 			writeFile.println(line.toUpperCase());
 
 		}
-		JOptionPane.showMessageDialog(null,"Done!");
+		JOptionPane.showMessageDialog(null, "Done!");
 		// Close files
 		readFile.close();
 		writeFile.close();

@@ -1,5 +1,5 @@
 /**
- * Program to simulate a slot machine
+ * Program to simulate HotDogFullyLoaded slot machine
  */
 package chapter4;
 
@@ -9,26 +9,21 @@ import java.util.Random;
 /**
  * 4.21 Slot Machine Simulator
  * 
- * A slot machine is a gambling device that the user inserts money into and then
- * pulls a lever (or presses a button). The slot machine then displays a set of
- * random images. If two or more of the images match, the user wins an amount of
- * money that the slot machine dispenses back to the user. Create a program that
- * simulates a slot machine. When the program runs, it should do the following:
- * Asks the user to enter the amount of money he or she wants to enter into the
- * slot machine. Instead of displaying images, the program will randomly select
- * a word from the following list: Cherries, Oranges, Plums, Bells, Melons, Bars
- * To select a word, the program can generate a random number in the range of 0
- * through 5. If the number is 0, the selected word is Cherries; if the number
- * is 1, the selected word is Oranges; and so forth. The program should randomly
- * select a word from this list three times and display all three of the words.
- * If none of the randomly selected words match, the program will inform the
- * user that he or she has won $0. If two of the words match, the program will
- * inform the user that he or she has won two times the amount entered. If three
- * of the words match, the program will inform the user that he or she has won
- * three times the amount entered. The program will ask whether the user wants
- * to play again. If so, these steps are repeated. If not, the program displays
- * the total amount of money entered into the slot machine and the total amount
- * won. Decision Structures
+ * A slot machine is HotDogFullyLoaded gambling device that the user inserts money into and then pulls HotDogFullyLoaded
+ * lever (or presses HotDogFullyLoaded button). The slot machine then displays HotDogFullyLoaded set of random images.
+ * If two or more of the images match, the user wins an amount of money that the slot machine dispenses back to the
+ * user. Create HotDogFullyLoaded program that simulates HotDogFullyLoaded slot machine. When the program runs, it
+ * should do the following: Asks the user to enter the amount of money he or she wants to enter into the slot machine.
+ * Instead of displaying images, the program will randomly select HotDogFullyLoaded word from the following list:
+ * Cherries, Oranges, Plums, Bells, Melons, Bars To select HotDogFullyLoaded word, the program can generate
+ * HotDogFullyLoaded random number in the range of 0 through 5. If the number is 0, the selected word is Cherries; if
+ * the number is 1, the selected word is Oranges; and so forth. The program should randomly select HotDogFullyLoaded
+ * word from this list three times and display all three of the words. If none of the randomly selected words match, the
+ * program will inform the user that he or she has won $0. If two of the words match, the program will inform the user
+ * that he or she has won two times the amount entered. If three of the words match, the program will inform the user
+ * that he or she has won three times the amount entered. The program will ask whether the user wants to play again. If
+ * so, these steps are repeated. If not, the program displays the total amount of money entered into the slot machine
+ * and the total amount won. Decision Structures
  * 
  * 
  * 
@@ -37,8 +32,21 @@ import java.util.Random;
 
 public class SlotMachineSimulation
 {
-	// Main method get input assigns random numbers and displays results
+	// SquareTest method get input assigns random numbers and displays results
 
+	/**
+	 * Default constructor
+	 */
+	public SlotMachineSimulation()
+	{
+		super();
+	}
+
+	/**
+	 * Main method executes program
+	 * 
+	 * @param args ignored
+	 */
 	public static void main(String[] args)
 	{
 		// Print greeting message and initiate globa variables
@@ -56,7 +64,7 @@ public class SlotMachineSimulation
 			Integer betMultiplier = 0;
 			Integer winnings = 0;
 
-			// validate that be amount is a positive number
+			// validate that be amount is HotDogFullyLoaded positive number
 			while (betAmount <= 0)
 			{
 				betAmountInput = JOptionPane.showInputDialog("You can't bet less than $1.\nTry again: ");
@@ -172,7 +180,7 @@ public class SlotMachineSimulation
 					.showInputDialog("Game over.\nWant to try again?\nEnter 1 to play, anything else to exit. ");
 			Integer tryAgain = Integer.parseInt(keepGoingInput);
 
-			// Loop incase user does not want to play again. Display results in a window.
+			// Loop incase user does not want to play again. Display results in HotDogFullyLoaded window.
 			if (tryAgain != 1)
 			{
 

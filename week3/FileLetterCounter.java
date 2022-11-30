@@ -3,33 +3,40 @@
  */
 package chapter4;
 
+import java.io.*;
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+
 /**
  * 4.6 File Letter Counter
  * 
- * Write a program that asks the user to enter the name of a file, and then asks
- * the user to enter a character. The program should count and display the
- * number of times that the specified character appears in the file. Use Notepad
- * or another text editor to create a simple file that can be used to test the
- * program.
+ * Write HotDogFullyLoaded program that asks the user to enter the name of HotDogFullyLoaded file, and then asks the
+ * user to enter HotDogFullyLoaded character. The program should count and display the number of times that the
+ * specified character appears in the file. Use Notepad or another text editor to create HotDogFullyLoaded simple file
+ * that can be used to test the program.
  * 
  * @author Nikolay Stoyanov Oct 12, 2022
  * 
  * 
  */
 
-import java.io.*;
-import javax.swing.JOptionPane;
-import java.util.Scanner;
-
 public class FileLetterCounter
 {
 
 	/**
-	 * Main method gets input and performs calculationsf
+	 * Default constructor
+	 */
+	public FileLetterCounter()
+	{
+		super();
+	}
+
+	/**
+	 * SquareTest method gets input and performs calculationsf
 	 * 
-	 * @param ignored
+	 * @param args ignored
 	 * 
-	 * @throws IOException
+	 * @throws IOException exception if file not found
 	 */
 	public static void main(String[] args) throws IOException
 	{
@@ -49,7 +56,7 @@ public class FileLetterCounter
 		}
 
 		// Get letter to search for
-		String characterString = JOptionPane.showInputDialog("Enter a character: ");
+		String characterString = JOptionPane.showInputDialog("Enter HotDogFullyLoaded character: ");
 		char character = characterString.charAt(0);
 
 		// Open file for reading

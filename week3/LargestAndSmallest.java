@@ -20,6 +20,14 @@ public class LargestAndSmallest
 {
 
 	/**
+	 * Default constructor
+	 */
+	public LargestAndSmallest()
+	{
+		super();
+	}
+
+	/**
 	 * Main method gets input and displays results
 	 * 
 	 * @param args ignored

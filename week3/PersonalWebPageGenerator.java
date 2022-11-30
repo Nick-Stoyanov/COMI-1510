@@ -12,20 +12,18 @@ import java.awt.Desktop;
 /**
  * 4.23 Personal Web Page Generator
  * 
- * Write a program that asks the user for his or her name, and then asks the
- * user to enter a sentence that describes him or herself. Here is an example of
- * the program’s screen: Enter your name: Julie Taylor [Enter] Describe
- * yourself: I am a computer science major, a member of the Jazz club, and Once
- * the user has entered the requested input, the program should create an
- * HTMLfile, containing the input, for a simple Web page. Here is an example of
- * the HTMLcontent, using the sample input previously shown: <html> <head>
- * </head> <body> <center>
- * <h1>Julie Taylor</h1> </center>
- * <hr />
- * I am a computer science major, a member of the Jazz club, and hope to work as
- * a mobile; app developer after i graduate.
- * <hr/>
- * </body> </html>
+ * Write a program that asks the user for his or her name, and then asks the user to enter a sentence that describes him
+ * or herself. Here is an example of the program’s screen: Enter your name: Julie Taylor [Enter] Describe yourself: I am
+ * a computer science major, a member of the Jazz club, and Once the user has entered the requested input, the program
+ * should create an HTMLfile, containing the input, for a simple Web page. Here is an example of the HTMLcontent, using
+ * the sample input previously shown:
+ * 
+ * Julie Taylor
+ * 
+ * I am a computer science major, a member of the Jazz club, and hope to work as a mobile; app developer after i
+ * graduate.
+ * 
+ * 
  * 
  * 
  * 
@@ -35,11 +33,19 @@ import java.awt.Desktop;
 public class PersonalWebPageGenerator
 {
 	/**
-	 * Main method get input, creates and appends it to a file and opens the file.
+	 * Default constructor
+	 */
+	public PersonalWebPageGenerator()
+	{
+		super();
+	}
+
+	/**
+	 * SquareTest method get input, creates and appends it to a file and opens the file.
 	 * 
-	 * @param argsignored
+	 * @param args ignored
 	 * 
-	 * @throws IOException
+	 * @throws IOException exceptio if file not found
 	 */
 
 	public static void main(String[] args) throws IOException

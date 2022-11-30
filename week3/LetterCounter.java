@@ -18,6 +18,14 @@ import javax.swing.JOptionPane;
 public class LetterCounter
 {
 	/**
+	 * Default constructor
+	 */
+	public LetterCounter()
+	{
+		super();
+	}
+
+	/**
 	 * Main method prompts user for input and displays results
 	 * 
 	 * @param args ignored

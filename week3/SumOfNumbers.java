@@ -18,44 +18,52 @@ import javax.swing.JOptionPane;
 
 public class SumOfNumbers
 {
-    /**
-     * 
-     * 
-     * 
-     * Main method prompts for input, calculates and displays results
-     * 
-     * @param ignored
-     */
-
-    public static void main(String[] args)
-    {
-
-	// Get user input for number the calculation will go up to and convert to int
-	String InputNumber = JOptionPane.showInputDialog(" I will calculate the sum of all integers from 1 up to: ");
-	Integer selectedNumber = Integer.parseInt(InputNumber);
-
-	// Initiate sum variable
-	Integer sum = 0;
-
-	// validate input is greater than 0
-	while (selectedNumber <= 0)
+	/**
+	 * Default constructor
+	 */
+	public SumOfNumbers()
 	{
-
-	    InputNumber = JOptionPane.showInputDialog(" Please enter a positive non zero number: ");
-	    selectedNumber = Integer.parseInt(InputNumber);
+		super();
 	}
 
-	// for loop to loop through and add each number to sum
-	for (int count = 0; count <= selectedNumber; count++)
+	/**
+	 * 
+	 * 
+	 * 
+	 * Main method prompts for input, calculates and displays results
+	 * 
+	 * @param args ignored
+	 */
+
+	public static void main(String[] args)
 	{
 
-	    sum += count;
-	}
+		// Get user input for number the calculation will go up to and convert to int
+		String InputNumber = JOptionPane.showInputDialog(" I will calculate the sum of all integers from 1 up to: ");
+		Integer selectedNumber = Integer.parseInt(InputNumber);
 
-	// Display results
-	JOptionPane.showMessageDialog(null,
-		"The sum of all the numbers from 1 up to " + selectedNumber + " is: " + sum);
+		// Initiate sum variable
+		Integer sum = 0;
 
-    }// close main
+		// validate input is greater than 0
+		while (selectedNumber <= 0)
+		{
+
+			InputNumber = JOptionPane.showInputDialog(" Please enter a positive non zero number: ");
+			selectedNumber = Integer.parseInt(InputNumber);
+		}
+
+		// for loop to loop through and add each number to sum
+		for (int count = 0; count <= selectedNumber; count++)
+		{
+
+			sum += count;
+		}
+
+		// Display results
+		JOptionPane.showMessageDialog(null,
+				"The sum of all the numbers from 1 up to " + selectedNumber + " is: " + sum);
+
+	}// close main
 
 }// close class
