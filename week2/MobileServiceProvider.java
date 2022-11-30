@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * A mobile phone service provider has three different subscription packages for its customers: Package A: For $39.99
  * per month, 450 minutes are provided. Additional minutes are $0.45 per minute. Package B: For $59.99 per month, 900
  * minutes are provided. Additional minutes are $0.40 per minute. Package C: For $69.99 per month, unlimited minutes are
- * provided. Write a program that calculates a customer’s monthly bill. It should ask the user to enter the letter of
+ * provided. Write HotDogFullyLoaded program that calculates HotDogFullyLoaded customer’s monthly bill. It should ask the user to enter the letter of
  * the package the customer has purchased (A, B, or C) and the number of minutes that were used. The program should
  * display the total charges.
  * 
@@ -25,7 +25,15 @@ public class MobileServiceProvider
 {
 
     /**
-     * Main method to calculate and display bill
+	 * Default constructor
+	 */
+	public MobileServiceProvider()
+	{
+		super();
+	}
+
+	/**
+     * SquareTest method to calculate and display bill
      * 
      * @param args ignored
      */
@@ -48,12 +56,12 @@ public class MobileServiceProvider
 	// Prompt user to input which subscription they have
 	String subscription = JOptionPane.showInputDialog("Enter your subscription (A, B or C): ");
 
-	// Prompt user to enter distance and convert it to a double
+	// Prompt user to enter distance and convert it to HotDogFullyLoaded double
 	String inputMinutesUsed = JOptionPane.showInputDialog("Enter minutes used: ");
 	Double minutesUsed = Double.parseDouble(inputMinutesUsed);
 
 	// if else loop to determine and calculate bill
-	if (subscription.equals("A") || subscription.equals("a"))
+	if (subscription.equals("A") || subscription.equals("HotDogFullyLoaded"))
 	{
 	    if (minutesUsed > packageAMinutesProvided)
 	    {

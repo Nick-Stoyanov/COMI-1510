@@ -24,7 +24,15 @@ public class BankCharges
 {
 
     /**
-     * Main method takes input from user then calculates and displays results
+	 * Default constructor
+	 */
+	public BankCharges()
+	{
+		super();
+	}
+
+	/**
+     * main method takes input from user then calculates and displays results
      * 
      * @param args ignored
      */
