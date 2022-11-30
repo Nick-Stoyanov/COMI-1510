@@ -1,6 +1,5 @@
 /**
- * This program uses the Die and AGameOf21 class to simulate a game between
- * player and computer
+ * This program uses the Die and AGameOf21 class to simulate a game between player and computer
  */
 package chapter6;
 
@@ -25,7 +24,9 @@ public class AGameOf21Test
 	}
 
 	/**
-	 * Play a game of 21
+	 * Play a game
+	 * 
+	 * @return results
 	 */
 	private static String playGame()
 	{
@@ -147,8 +148,7 @@ public class AGameOf21Test
 	}
 
 	/**
-	 * Ask user if they would like to run the program again. If no then display
-	 * goodbye message.
+	 * Ask user if they would like to run the program again. If no then display goodbye message.
 	 *
 	 * @return boolean to stop or continue the program
 	 */
@@ -165,10 +165,15 @@ public class AGameOf21Test
 		return run;
 	}
 
+	/**
+	 * Display output
+	 * 
+	 * @param output output
+	 */
 	private static void displayOutput(String output)
 	{
 		System.out.println(output);
-	}// close displayOutput
+	}
 
 	/**
 	 * Main method plays game
