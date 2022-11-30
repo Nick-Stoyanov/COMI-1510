@@ -22,7 +22,7 @@ public class CircleListTest
 
 	/**
 	 * Main method tests the lists
-	 * @param args
+	 * @param args ignored
 	 */
 	public static void main(String[] args)
 	{

@@ -16,20 +16,32 @@ import java.util.Collections;
  */
 public class CircleList
 {
-	// Create new random object
+	/**
+	 * Create new random object
+	 */
 	Random rand = new Random();
 
-	// Instantiate new array.
+	/**
+	 *  Instantiate new array.
+	 */
 	private Circle[] array = null;
-	// Instantiate new array to hold sorted array.
+	/**
+	 *  Instantiate new array to hold sorted array.
+	 */
 	private Circle[] sortedArray = null;
 
-	// Instantiate new array list
+	/**
+	 *  Instantiate new array list
+	 */
 	private ArrayList<Circle> list = new ArrayList<Circle>();
-	// Instantiate new array list to hold sorted array list
+	/**
+	 *  Instantiate new array list to hold sorted array list
+	 */
 	private ArrayList<Circle> sortedList = new ArrayList<Circle>();
 
-	// Instantiate metrics string builder to hold results.
+	/**
+	 * Instantiate metrics string builder to hold results.
+	 */
 	private StringBuilder metrics = new StringBuilder();
 
 	/**
